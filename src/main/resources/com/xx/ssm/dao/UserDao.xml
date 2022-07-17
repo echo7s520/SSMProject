@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xx.ssm.dao.UserDao">
+    <!--User findById(Integer id);-->
+    <select id="findById" resultType="com.xx.ssm.domain.User">
+            select * from t_user where id=#{id};
+    </select>
+
+    <!--List<User> findAll();-->
+    <select id="findAll" resultType="com.xx.ssm.domain.User">
+        select * from t_user;
+    </select>
+
+    <!--void insertUser(User user);-->
+    <insert id="insertUser">
+        insert into t_user values (null ,#{username},#{age},#{address});
+    </insert>
+
+    <!--void deleteUser(Integer id);-->
+    <delete id="deleteUser">
+        delete from t_user where id=#{id};
+    </delete>
+    <!--void updateUser(User user);-->
+    <update id="updateUser">
+        UPDATE t_user SET username = #{username},age=#{age},address=#{address} WHERE id=#{id};
+    </update>
+
+</mapper>
